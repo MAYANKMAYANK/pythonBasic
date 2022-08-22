@@ -52,3 +52,16 @@ def upd_data(request,uid):
         return Response({"success":"updated successfully"})
     else:
       return Response({"success":"not updated successfully"})
+
+
+
+from rest_framework import status, viewsets
+
+class Curd(viewsets.ModelViewSet):
+  # permission_classes = [IsAuthenticated]
+
+  queryset=ADDDATA.objects.all()
+  # print("55"*5)
+  # print(queryset)
+  serializer_class=upddataSerializer
+  print(serializer_class)
